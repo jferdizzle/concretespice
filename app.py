@@ -9,7 +9,7 @@ app = Flask(__name__)
 @app.route('/', strict_slashes=False)
 def index():
     gifs = get_giphy_results()
-    gifs = divide_chunks(gifs, len(gifs)/4)
+    gifs = divide_chunks(gifs, int(len(gifs)/4))
     return render_template(
         'index.html',
         gif_set_0=gifs[0],
