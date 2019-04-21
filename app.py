@@ -22,5 +22,9 @@ def index():
 def page_not_found(page_name):
     return index()
 
+@app.route('/map', strict_slashes=False)
+def map():
+    return render_template('map.html')
+
 if __name__ == '__main__':
     app.run(debug=os.environ.get('DEBUG', False))

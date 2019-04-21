@@ -4,6 +4,17 @@
   margin-right: auto;
 }
 
+.nav {
+    position: relative;
+}
+.nav img {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    width: 8%;
+    height: auto;
+}
+
 .follow {
   text-align: center;
   width: 50%;
