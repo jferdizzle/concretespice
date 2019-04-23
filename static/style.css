@@ -2,12 +2,16 @@
   display:block;
   margin-left: auto;
   margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 20%;
+  height: auto;
 }
 
-.nav {
+.explore {
     position: relative;
 }
-.nav img {
+.explore img {
     position: absolute;
     top: 0px;
     right: 5px;
@@ -16,14 +20,14 @@
 }
 
 .follow {
-  text-align: center;
-  width: 50%;
-  margin: 0 auto;
+    position: relative;
 }
-
 .follow img {
-  width: 20%;
-  height: auto;
+    position: absolute;
+    right: 10%;
+    top: 5px;
+    width: 8%;
+    height: auto;
 }
 
 .row img {
