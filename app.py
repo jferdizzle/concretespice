@@ -16,6 +16,8 @@ def index():
         gif_set_1=gifs[1],
         gif_set_2=gifs[2],
         gif_set_3=gifs[3],
+        nav_link="https://media.giphy.com/media/xUOwG3nVH6Of928xJm/giphy.gif",
+        nav_path="./map",
     )
 
 @app.errorhandler(404)
@@ -24,7 +26,11 @@ def page_not_found(page_name):
 
 @app.route('/map', strict_slashes=False)
 def map():
-    return render_template('map.html')
+    return render_template(
+        'map.html',
+        nav_link="https://media.giphy.com/media/TFedSWdWdQnoOJ3YWL/giphy.gif",
+        nav_path="./",
+    )
 
 if __name__ == '__main__':
     app.run(debug=os.environ.get('DEBUG', False))

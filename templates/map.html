@@ -1,60 +1,45 @@
-<!doctype HTML>
-<meta charset = 'utf-8'>
-<html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="static/style.css">
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
-  </head>
-  <header>
-    <div class="nav">
-      <a href="./"><img src="https://media.giphy.com/media/TFedSWdWdQnoOJ3YWL/giphy.gif"></a>
-    </div>
-  </header
-  <body >
-    <div class="logo">
-      <img src="static/images/logo.png">
-    </div>
-    <div id="map" style="height: 700px"></div>
-    <script type="text/javascript">
-      var spec = {
-        "dom": "map",
-        "urlTemplate": 'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
-        "layerOpts": {
-         "attribution": "Map data<a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>\n         contributors, Imagery<a href=\"http://cartodb.com/attributions\">CartoDB</a>"
-        },
-        "center": [40.704371, -73.989945],
-        "zoom": 13,
-        "id": "map"
-      }
+{% extends 'base.html' %} {% block content %}
 
-      var fireIcon = L.icon({
-        iconUrl: 'static/images/fire.svg',
-        iconSize:     [28, 42],
-        iconAnchor:   [0, 0],
-        popupAnchor:  [4, 2]
-      });
+<div id="map" style="height: 700px; width: 80%; position; display:block; margin-left: auto; margin-right: auto;"></div>
+<script type="text/javascript">
+  var spec = {
+    "dom": "map",
+    "urlTemplate": 'http://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+    "layerOpts": {
+     "attribution": "Map data<a href=\"http://www.openstreetmap.org/copyright\">OpenStreetMap</a>\n         contributors, Imagery<a href=\"http://cartodb.com/attributions\">CartoDB</a>"
+    },
+    "center": [40.704371, -73.989945],
+    "zoom": 13,
+    "id": "map"
+  }
 
-      var map = L.map(spec.id, {scrollWheelZoom:false}).setView(spec.center, spec.zoom);
-      var layer = L.tileLayer(spec.urlTemplate, spec.layerOpts);
+  var fireIcon = L.icon({
+    iconUrl: 'static/images/fire.svg',
+    iconSize:     [28, 42],
+    iconAnchor:   [0, 0],
+    popupAnchor:  [4, 2]
+  });
 
-      function add_marker(long_lat, name, sweat_mugs, doggy_bags) {
-        return (
-          L.marker(long_lat, { icon: fireIcon })
-           .addTo( map )
-           .bindPopup("<dl><dt><b>" + name + "</b></dt>" + "<dt>Sweat Mugs:" + sweat_mugs + "</dt>" + "<dt>Doggy Bags:" + doggy_bags + "</dt>")
-        );
-      }
+  var map = L.map(spec.id, {scrollWheelZoom:false}).setView(spec.center, spec.zoom);
+  var layer = L.tileLayer(spec.urlTemplate, spec.layerOpts);
 
-      map.addLayer(layer);
+  function add_marker(long_lat, name, sweat_mugs, doggy_bags) {
+    return (
+      L.marker(long_lat, { icon: fireIcon })
+       .addTo( map )
+       .bindPopup("<dl><dt><b>" + name + "</b></dt>" + "<dt>Sweat Mugs:" + sweat_mugs + "</dt>" + "<dt>Doggy Bags:" + doggy_bags + "</dt>")
+    );
+  }
 
-      add_marker([40.679869, -73.982143], "The Meat Hook at Threes Brewing - Hot Chicken Sandwich", "😅😅😅", "🥡🥡🥡🥡🥡");
-      add_marker([40.715365, -73.951011], "Kings County Imperial - Dan Dan Mian", "😅😅😅😅", "🥡🥡🥡🥡🥡")
-      add_marker([40.739844, -73.988488], "Rhong Tiam - Extra Spicy Chickpea Roti", "😅😅😅", "🥡🥡🥡🥡")
-      add_marker([40.683549, -73.943811], "Peaches HotHouse - Extra Hot Chicken Sandwich", "😅😅", "🥡🥡")
-      add_marker([40.711931, -73.957261], "Cerveceria Havemeyer - Aguachilles y Ceviche", "😅😅😅😅", "🥡🥡🥡")
-      add_marker([40.728511, -73.957175], "Paulie Gee's Slice Shop - Hellboy Slice", "😅","🥡🥡🥡🥡")
-      add_marker([40.739512, -73.985852], "Maialino - Bucatini all'Amatriciana", "😅","🥡🥡🥡🥡🥡")
-    </script>
-  </body>
-</html>
+  map.addLayer(layer);
+
+  add_marker([40.679869, -73.982143], "The Meat Hook at Threes Brewing - Hot Chicken Sandwich", "😅😅😅", "🥡🥡🥡🥡🥡");
+  add_marker([40.715365, -73.951011], "Kings County Imperial - Dan Dan Mian", "😅😅😅😅", "🥡🥡🥡🥡🥡")
+  add_marker([40.739844, -73.988488], "Rhong Tiam - Extra Spicy Chickpea Roti", "😅😅😅", "🥡🥡🥡🥡")
+  add_marker([40.683549, -73.943811], "Peaches HotHouse - Extra Hot Chicken Sandwich", "😅😅", "🥡🥡")
+  add_marker([40.711931, -73.957261], "Cerveceria Havemeyer - Aguachilles y Ceviche", "😅😅😅😅", "🥡🥡🥡")
+  add_marker([40.728511, -73.957175], "Paulie Gee's Slice Shop - Hellboy Slice", "😅","🥡🥡🥡🥡")
+  add_marker([40.739512, -73.985852], "Maialino - Bucatini all'Amatriciana", "😅","🥡🥡🥡🥡🥡")
+</script>
+
+{% endblock %}

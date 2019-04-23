@@ -1,0 +1,32 @@
+<!doctype html>
+<meta charset = 'utf-8'>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link rel="stylesheet" type="text/css" href="static/style.css">
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
+    <link rel="manifest" href="static/images/site.webmanifest">
+    <link rel="mask-icon" href="static/images/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffc40d">
+    <meta name="theme-color" content="#ffffff">
+    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <title>Concrete Spice</title>
+  </head>
+  <header>
+    <div class="explore">
+      <a href={{nav_path}}><img src={{nav_link}}></a>
+    </div>
+    <div class="follow">
+      <a href="https://www.instagram.com/concretespice/"><img src="https://media.giphy.com/media/1vZ6SvvT2t4oFwNU0E/giphy.gif"></a>
+    </div>
+    <div class="logo">
+      <img src="static/images/concrete_spice_logo_2x.png">
+    </div>
+  </header>
+  <body>
+    {% block content %} {% endblock %}
+  </body>
+</html>
